@@ -1,4 +1,6 @@
-#LED effects
+#LED effects with FastLED
+
+Most effects use FastLED library https://github.com/FastLED/FastLED
 
 ## Setup
 
