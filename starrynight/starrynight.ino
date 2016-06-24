@@ -5,8 +5,8 @@ Starry night
 Darker blue with randomly placed twinkling around the LED strip.
 
 Created for use with "artificial cloud" made from rice paper lantern coated with cotton wool.
-Potentiometer 1 not used
-Potentiometer 2 adjusts the brightness of twinkling white leds
+Potentiometer 1 adjusts the brightness of twinkling white leds
+Potentiometer 2 controls the speed of the twinkling
 
 */
 
@@ -47,22 +47,23 @@ void starryNight(int twinkle){
   fill_solid( leds, NUM_LEDS, CRGB(0,0,102));
   FastLED.show();
 
-  potVal2 = map(potPin2Value, 0, 1023 , 0, 255);
+  potVal1 = map(potPin1Value, 0, 1023 , 0, 255);
+  twinkle = map(potPin2Value, 0, 1023 , 200, 1600);
   int i = random(0,57);
-  int twinkleLightUpDelay = 60;
+  int twinkleLightUpDelay = 50;
 
-  leds[i] = CHSV(0,0,potVal2);
+  leds[i] = CHSV(0,0,potVal1);
   FastLED.show();
   delay(twinkleLightUpDelay);
 
-  leds[i+1] = CHSV(0,0,potVal2);
+  leds[i+1] = CHSV(0,0,potVal1);
   FastLED.show();
   delay(twinkleLightUpDelay);
 
-  leds[i+2] = CHSV(0,0,potVal2);
+  leds[i+2] = CHSV(0,0,potVal1);
   FastLED.show();
 
-  delay(twinkle/2);
+  delay(twinkle/4);
 
   leds[i] = CRGB(0,0,102);
   FastLED.show();
